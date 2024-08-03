@@ -4,3 +4,6 @@ function func1(){
 function tometal(){
     window.location.href = 'https://mpmms.github.io/mc'
 }
+function togit(){
+    window.location.href = 'https://github.com/mpmms'
+}
