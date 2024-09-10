@@ -7,3 +7,7 @@ function tometal(){
 function togit(){
     window.location.href = 'https://github.com/mpmms'
 }
+}
+function tohome(){
+    window.location.href = 'https://mpmms.github.io'
+}
