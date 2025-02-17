@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="محمد پارسا مرتضوی, برنامه نویس پایتون, بات‌های بله, توسعه‌دهنده بات, پایتون, طراحی وب">
+    <meta name="description" content="محمد پارسا مرتضوی برنامه نویس پایتون و توسعه‌دهنده بات‌های بله و تلگرام است. او در زمینه طراحی وب و ساخت ربات‌های تلگرامی فعالیت می‌کنم.">    
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
+    <meta property="og:image" content="image.jpg">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <title>MPMMS</title>
+    <style>
+        * {
+            font-family: Vazirmatn, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        @font-face {
+            font-family: colak;
+            src: url('colak.ttf') format('truetype');
+        }
+        html {
+            scroll-behavior: smooth;
+
+        }
+    
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+        #scrool-place {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 10px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+        }
+    
+        #progressbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 10px;
+            height: 100%;
+            background: linear-gradient(to top, #0095da, #26a8ff);
+            animation: hue-anim 6s linear infinite;
+        }
+    
+        @keyframes hue-anim {
+            0%, 100% {
+                filter: hue-rotate(0deg);
+            }
+            50% {
+                filter: hue-rotate(360deg);
+            }
+        }
+    
+        #progressbar::before, #progressbar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, #0095da, #26a8ff);
+            filter: blur(10px);
+        }
+    
+        body {
+            background-color: #272727;
+            color: #2ec9d4;
+            line-height: 1.6;
+            text-align: center;
+            animation: fadeIn 2s ease-out;
+        }
+    
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    
+        header {
+            background-color: #0f0f0ff1;
+            color: #2ec9d4;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: slideIn 1s ease-out;
+        }
+    
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            animation: fadeIn 1.5s ease-out,;
+            animation: slideIn 1s ease-out;
+            animation: shine 1.5s infinite alternate;
+            font-family: colak;
+        }
+    
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    
+        @keyframes shine {
+            0% {
+                text-shadow: 0 0 5px #2ec9d4, 0 0 10px #2ec9d4;
+            }
+            100% {
+                text-shadow: 0 0 10px #2ec9d4, 0 0 20px #2ec9d4;
+            }
+        }
+    
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            animation: fadeIn 2s ease-out;
+        }
+    
+        .skills {
+            background-color: #0f0f0ff1;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px #000000;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: slideUp 1s ease-out;
+        }
+    
+        @keyframes slideUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    
+        .skills:hover {
+            transform: scale(1.02);
+        }
+    
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2ec9d4;
+        }
+    
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            animation: fadeIn 1.5s ease-out;
+        }
+    
+        .skill {
+            width: 600px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            animation: skillFadeIn 1s ease-out;
+        }
+    
+        @keyframes skillFadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    
+        .skill:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px #000000;
+        }
+    
+        .img {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            border-style: solid;
+            border-color: #2ec9d4;
+        }
+    
+        .skill {
+            background-color: #2ec9d4;
+            color: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px #000000f1;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+    
+        .skills {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px #2ec9d4;
+        }
+    
+        a {
+            text-decoration: none;
+            color: #ffffff;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+    
+        a:hover {
+            color: #2ec9d4;
+            text-shadow: 0 0 5px #2ec9d4, 0 0 10px #2ec9d4, 0 0 15px #2ec9d4, 0 0 20px #2ec9d4;
+        }
+    
+        nav {
+            background-color: #2ec9d4;
+            overflow: hidden;
+            animation: fadeInNav 1s ease-out; 
+        }
+
+        nav a {
+            float: right;
+            padding: 14px 20px;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+    
+        nav a:hover {
+            background-color: #0f0f0ff1;
+            color: #2ec9d4;
+        }
+    
+    
+        @keyframes fadeInNav {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+
+        @media (max-width: 1024px) {
+            #progressbar {
+                width: 8px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            .skills {
+                width: 90%;
+                padding: 15px;
+                align-items: center;
+                margin-left: auto;  
+                margin-right: auto; 
+                display: flex; 
+                flex-direction: column;
+            }
+    
+            .skill {
+                width: 500px;
+                margin-bottom: 8px;
+            }
+        }
+        @media (max-width: 530px) {
+            nav a {
+                font-size: 1rem;
+                text-align: center;
+            }
+        }
+        @media (max-width: 500px) {
+            nav a {
+                font-size: 0.8rem;
+                text-align: center;
+            }
+        }
+    
+        @media (max-width: 763px) {
+            #progressbar {
+                width: 0%;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .skills {
+                width: 95%;
+                padding: 10px;
+            }
+            .skill {
+                width: 400px;
+                padding: 10px;
+            }
+            nav a {
+                padding: 10px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #progressbar {
+                width: 0%;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+            .skills {
+                width: 100%;
+                padding: 8px;
+            }
+            .skill {
+                width: 100%;
+                padding: 8px;
+            }
+            nav a {
+                font-size: 0.6rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 763px) {
+                #progressbar {
+                width: 0%;
+            }
+        }
+
+        @media (max-width: 480px) {
+                #progressbar {
+                width: 0%;
+            }
+        }
+
+        @media (max-width: 375px) {
+                #progressbar {
+                width: 0%;
+
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <div class="account-icon">
+            <img class="img" src="assets/account.png" alt="تصویر پروفایل محمد پارسا مرتضوی" />
+        </div>
+        <h1>محمد پارسا مرتضوی</h1>
+    </header>
+    <nav>
+        <a href="index.html" class="a2">خانه</a>
+        <a href="#maharat" class="a2">مهارت های من</a>
+        <a href="#digar" class="a2">دیگر کار های من</a>
+        <a href="#doostan" class="a2">دوستان</a>
+        <a href="#contact" class="a2">ارتباط با من</a>
+    </nav>
+    <div id="progressbar"></div>
+    <div id="scrool-place"></div>
+    <main>
+
+        <section class="skills">
+            <h2>بیوگرافی</h2>
+            <p>سلام! من محمد پارسا مرتضوی هستم و ۱۴ سالمه. الان که اینجایید یه برنامه نویس پایتونم.
+                اوایل کلاس ششم بودم که یه دوره جاوااسکریپت رایگان پیدا کردم و کم کم از برنامه نویسی خوشم اومد و بعدش به سراغ پایتون و فرانت اند اومدم.
+                الان هم مدتی از اون موقع میگذره، من پایتون رو حرفه ای شدم و هر از چندگاهی هم طراحی وب انجام میدم. ساخت ربات هم جز علاقه های منه و در کل، سعی میکنم که هر روز پیشرفت کنم</p>
+        </section>
+
+        <section class="skills" id="maharat">
+            <h2>مهارت‌ها</h2>
+            <ul>
+                <li class="skill">پایتون</li>
+                <li class="skill">اچ تی ام ال</li>
+                <li class="skill">سی اس اس</li>
+                <li class="skill">جاوا اسکریپت</li>
+                <li class="skill">برنامه نویسی ربات بله و تلگرام</li>
+                <li class="skill">طراحی فرانت اند</li>
+            </ul>
+        </section>
+
+        <section class="skills" id="digar">
+            <h2>دیگر کار های من </h2>
+            <a href="https://ble.ir/chatxbot" target="_blank">چت ایکس (بات بله)</a>
+            <br>
+            <a href="https://ble.ir/picasso_bot" target="_blank">پیکاسو(بات بله) (غیرفعال)</a>
+            <br>
+            <a href="https://ble.ir/MetalCode" target="_blank">بخش اموزشی ما در بله</a>
+        </section>
+
+        <section class="skills" id="contact">
+            <h2><a href="https://ble.ir/mpmms" target="_blank">@mpmms</a> :بله</h2>
+            <h2><a href="https://t.me/mpm_ms" target="_blank">@mpm_ms</a> :تلگرام</h2>
+            <h2><a href="https://github.com/mpmms" target="_blank">@mpmms</a> :صفحه گیت‌هاب</h2>
+        </section>
+
+        <section class="skills" id="doostan">
+            <h2>دوستان</h2>
+            <a href="https://www.behradinfo.ir/" target="_blank">بهراد امیدی</a>
+            <br>
+            <a href="https://www.daradege.ir/" target="_blank">علی صفامنش</a>
+        </section>
+
+    </main>
+    <script type="text/javascript">
+        let progressbar = document.getElementById('progressbar')
+        let totalHeight = document.body.scrollHeight - window.innerHeight
+        window.onload = function() {
+            progressbar.style.height = 0 + '%'
+        }
+        window.onscroll = function() {
+            let progressHeight = (window.pageYOffset / totalHeight) * 100;
+            progressbar.style.height = progressHeight + '%';
+        }
+    </script>
+</body>
+</html>
