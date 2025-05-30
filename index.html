@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -22,7 +23,6 @@
         }
         html {
             scroll-behavior: smooth;
-
         }
     
         ::-webkit-scrollbar {
@@ -45,6 +45,7 @@
             height: 100%;
             background: linear-gradient(to top, #0095da, #26a8ff);
             animation: hue-anim 6s linear infinite;
+            z-index: 1000;
         }
     
         @keyframes hue-anim {
@@ -68,7 +69,7 @@
         }
     
         body {
-            background-color: #272727;
+            background: linear-gradient(#3d3d3d , #181818);
             color: #2ec9d4;
             line-height: 1.6;
             text-align: center;
@@ -108,21 +109,8 @@
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            animation: fadeIn 1.5s ease-out,;
-            animation: slideIn 1s ease-out;
             animation: shine 1.5s infinite alternate;
             font-family: colak;
-        }
-    
-        @keyframes slideIn {
-            0% {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
     
         @keyframes shine {
@@ -137,23 +125,20 @@
         main {
             padding: 20px;
             max-width: 800px;
-            margin: auto;
+            margin: 0 auto;
             animation: fadeIn 2s ease-out;
         }
     
         .skills {
-            background-color: #0f0f0ff1;
+            background-color: #141414;
             color: #ffffff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 15px #000000;
-            margin-bottom: 30px;
-            margin-top: 20px;
+            margin: 20px auto;
             transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            width: 90%;
+            max-width: 800px;
             animation: slideUp 1s ease-out;
         }
     
@@ -188,7 +173,8 @@
         }
     
         .skill {
-            width: 600px;
+            width: 100%;
+            max-width: 600px;
             padding: 15px;
             margin-bottom: 10px;
             border-radius: 5px;
@@ -219,7 +205,9 @@
             border-radius: 100%;
             border-style: solid;
             border-color: #2ec9d4;
+            max-width: 100%;
         }
+
     
         .skill {
             background-color: #2ec9d4;
@@ -231,8 +219,8 @@
             transition: transform 0.3s ease;
         }
     
-        .skills {
-            transform: scale(1.05);
+        .skills:hover {
+            transform: scale(1.02);
             box-shadow: 0 6px 12px #2ec9d4;
         }
     
@@ -254,22 +242,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         nav a {
             float: none;
-            padding: 14px 20px;
+            padding: 14px 16px;
             color: rgb(0, 0, 0);
             text-decoration: none;
+            font-weight: bold;
             text-align: center;
             transition: background-color 0.3s ease;
+            flex: 1 0 auto;
+            min-width: 80px;
         }
     
         nav a:hover {
             background-color: #0f0f0ff1;
             color: #2ec9d4;
         }
-    
     
         @keyframes fadeInNav {
             0% {
@@ -281,104 +272,306 @@
                 transform: translateY(0);
             }
         }
+
+        .light-mode body {
+            background: linear-gradient(#d3d3d3, #e4e4e4);
+            color: #1a1a1a;
+        }
+
+        .light-mode header {
+            background-color: #ffffffee;
+            color: #1a1a1a;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .light-mode .skills {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .light-mode .skill {
+            background-color: #e3f2fd;
+            color: #000000;
+        }
+
+        .light-mode nav {
+            background-color: #2ec9d4;
+        }
+
+        .light-mode nav a {
+            color: #000;
+        }
+
+        .light-mode nav a:hover {
+            background-color: #ffffff;
+            color: #2ec9d4;
+        }
+
+        .light-mode .btn {
+            background-color: #2ec9d4;
+            color: #000000;
+        }
+
+        .light-mode .btn:hover {
+            background-color: #ffffff;
+            color: #2ec9d4;
+            box-shadow: 0 0 10px #2ec9d4;
+        }
+
+        .light-mode footer {
+            background-color: #f5f5f5;
+            color: #000000;
+        }
+
+        .theme-toggle-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: transparent;
+            border: 2px solid #2ec9d4;
+            border-radius: 50%;
+            color: #2ec9d4;
+            font-size: 1.2rem;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .theme-toggle-btn:hover {
+            background-color: #2ec9d4;
+            color: #000;
+            box-shadow: 0 0 10px #2ec9d4;
+        }
+
+
+        .btn {
+            background: #2ec9d4;
+            color: #000;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 5px;
+            display: inline-block;
+            width: 80%;
+            max-width: 300px;
+        }
+        
+        .btn:hover {
+            background: #0f0f0ff1;
+            color: #2ec9d4;
+            box-shadow: 0 0 10px #2ec9d4;
+        }
     
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #0f0f0f;
+            color: #2ec9d4;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         @media (max-width: 1024px) {
             #progressbar {
                 width: 8px;
             }
-            header h1 {
-                font-size: 2rem;
+            
+            h1 {
+                font-size: 2.2rem;
             }
+            
             .skills {
                 width: 90%;
-                padding: 15px;
-                align-items: center;
-                margin-left: auto;  
-                margin-right: auto; 
-                display: flex; 
-                flex-direction: column;
             }
-    
-            .skill {
-                width: 500px;
-                margin-bottom: 8px;
-            }
-        }
-        @media (max-width: 530px) {
+            
             nav a {
-                font-size: 1rem;
-                text-align: center;
+                padding: 12px 14px;
+                font-size: 0.9rem;
             }
         }
-        @media (max-width: 500px) {
-            nav a {
-                font-size: 0.8rem;
-                text-align: center;
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
             }
-        }
-    
-        @media (max-width: 763px) {
+            
+            .img {
+                width: 90px;
+                height: 90px;
+            }
+
             #progressbar {
                 width: 0%;
             }
-            header h1 {
+            
+            nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            nav a {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+                min-width: 70px;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
                 font-size: 1.8rem;
             }
-            .skills {
-                width: 95%;
-                padding: 10px;
+            
+            p {
+                font-size: small;
             }
-            .skill {
-                width: 400px;
-                padding: 10px;
-            }
-            nav a {
-                padding: 10px 15px;
-            }
-        }
 
-        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            nav a {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+                min-width: 60px;
+            }
+
             #progressbar {
                 width: 0%;
             }
-            header h1 {
-                font-size: 1.5rem;
-            }
+            
             .skills {
-                width: 100%;
-                padding: 8px;
+                padding: 15px;
             }
+            
             .skill {
-                width: 100%;
-                padding: 8px;
-            }
-            nav a {
-                font-size: 0.6rem;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 763px) {
-                #progressbar {
-                width: 0%;
+                padding: 15px;
             }
         }
 
         @media (max-width: 480px) {
-                #progressbar {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            p {
+                font-size: smaller;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            #progressbar {
                 width: 0%;
+            }
+            
+            .img {
+                width: 70px;
+                height: 70px;
+            }
+            
+            nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            nav a {
+                padding: 8px;
+                font-size: 0.75rem;
+                min-width: 50px;
+            }
+            
+            .skills {
+                padding: 12px;
+                width: 95%;
+            }
+            
+            .skill {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+            
+            .btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            #progressbar {
+                width: 6px;
             }
         }
 
         @media (max-width: 375px) {
-                #progressbar {
-                width: 0%;
+            h1 {
+                font-size: 1.4rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            .img {
+                width: 60px;
+                height: 60px;
+            }
 
+            #progressbar {
+                width: 0%;
+            }
+            
+            nav a {
+                padding: 6px;
+                font-size: 0.7rem;
+                min-width: 40px;
+            }
+            
+            .btn {
+                padding: 6px 15px;
+                font-size: 0.8rem;
+            }
+            
+            #progressbar {
+                width: 4px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            h1 {
+                font-size: 1.3rem;
+            }
+            
+            nav {
+                flex-direction: column;
+            }
+
+            #progressbar {
+                width: 0%;
+            }
+            
+            nav a {
+                width: 100%;
+                padding: 8px;
+            }
+            
+            #progressbar {
+                display: none;
             }
         }
     </style>
-    
 </head>
 <body>
     <header>
@@ -386,18 +579,19 @@
             <img class="img" src="assets/account.png" alt="تصویر پروفایل محمد پارسا مرتضوی" />
         </div>
         <h1>محمد پارسا مرتضوی</h1>
+        <button id="toggle-theme" class="theme-toggle-btn">☀️</button>
+
     </header>
     <nav>
         <a href="#doostan" class="a2">دوستان</a>
         <a href="#contact" class="a2">ارتباط با من</a>
-        <a href="#digar" class="a2">دیگر کار های من</a>
-        <a href="#maharat" class="a2">مهارت های من</a>
+        <a href="#digar" class="a2">دیگر کارهای من</a>
+        <a href="#maharat" class="a2">مهارت‌های من</a>
         <a href="index.html" class="a2">خانه</a>
     </nav>
     <div id="progressbar"></div>
     <div id="scrool-place"></div>
     <main>
-
         <section class="skills">
             <h2>بیوگرافی</h2>
             <p>سلام! من محمد پارسا مرتضوی هستم و ۱۴ سالمه. الان که اینجایید یه برنامه نویس پایتونم.
@@ -412,39 +606,45 @@
                 <li class="skill">اچ تی ام ال</li>
                 <li class="skill">سی اس اس</li>
                 <li class="skill">جاوا اسکریپت</li>
-                <li class="skill">برنامه نویسی ربات بله و تلگرام</li>
-                <li class="skill">طراحی فرانت اند</li>
+                <li class="skill">ساخت ربات بله</li>
+                <li class="skill">ساخت ربات تلگرام</li>
+                <li class="skill">Illustrator</li>
+                <li class="skill">Photoshop</li>
             </ul>
         </section>
 
         <section class="skills" id="digar">
-            <h2> پروژه های من </h2>
-            <a href="https://ble.ir/shahriyar_bot" target="_blank">داستان‌نویس شهریار(بات بله)</a>
+            <h2>دیگر کارهای من</h2>
+            <a href="https://ble.ir/MetalCode" class="btn" target="_blank">آکادمی برنامه‌نویسی متال‌کد</a>
             <br>
-            <a href="https://ble.ir/shahram_bot" target="_blank">شاعر شهرام(بات بله)</a>
+            <a href="https://ble.ir/shahriyar_bot" class="btn" target="_blank">ربات داستان نویس شهریار</a>
             <br>
-            <a href="https://ble.ir/chatxbot" target="_blank">(بزودی...)چت ایکس (بات بله)</a>
+            <a href="https://ble.ir/shahram_bot" class="btn" target="_blank">ربات شاعر شهرام</a>
             <br>
-            <a href="https://metalcode.ir" target="_blank">آکادمی متال‌کد</a>
+            <a href="https://pypi.org/project/thepalette" class="btn" target="_blank">(ThePalette) کتابخانه دپالت</a>
         </section>
 
         <section class="skills" id="contact">
-            <a href="https://ble.ir/mpmms" target="_blank">@mpmms :بله</a>
+            <h2>ارتباط با من</h2>
+            <a href="https://ble.ir/mpmms" class="btn" target="_blank">@mpmms :بله</a>
             <br>
-            <a href="https://t.me/mpm_ms" target="_blank">@mpm_ms :تلگرام</a>
+            <a href="https://t.me/mpm_ms" class="btn" target="_blank">@mpm_ms :تلگرام</a>
             <br>
-            <a href="https://github.com/mpmms" target="_blank">@mpmms :صفحه گیت‌هاب</a>
+            <a href="https://github.com/mpmms" class="btn" target="_blank">@mpmms :صفحه گیت‌هاب</a>
         </section>
 
         <section class="skills" id="doostan">
             <h2>دوستان</h2>
-            <a href="https://www.zeroonecode.ir/" target="_blank">امیرعلی ترکاشوند</a>
+            <a href="https://www.zeroonecode.ir/" class="btn" target="_blank">امیرعلی ترکاشوند</a>
             <br>
-            <a href="https://www.behradinfo.ir/" target="_blank">بهراد امیدی</a>
+            <a href="https://www.behradinfo.ir/" class="btn" target="_blank">بهراد امیدی</a>
             <br>
-            <a href="http://www.daradege.ir/" target="_blank">علی صفامنش</a>
+            <a href="http://www.daradege.ir/" class="btn" target="_blank">علی صفامنش</a>
         </section>
 
+        <footer>
+            <p>&copy; 2025 محمد پارسا مرتضوی | تمامی حقوق محفوظ است.</p>
+        </footer>
     </main>
     <script type="text/javascript">
         let progressbar = document.getElementById('progressbar')
@@ -456,6 +656,16 @@
             let progressHeight = (window.pageYOffset / totalHeight) * 100;
             progressbar.style.height = progressHeight + '%';
         }
+
+            const toggleBtn = document.getElementById('toggle-theme');
+    let lightMode = false;
+
+    toggleBtn.addEventListener('click', () => {
+        document.documentElement.classList.toggle('light-mode');
+        lightMode = !lightMode;
+        toggleBtn.textContent = lightMode ? '🌙' : '☀️';
+    });
+
     </script>
 </body>
 </html>
