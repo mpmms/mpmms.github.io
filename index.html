@@ -1,674 +1,716 @@
-
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="محمد پارسا مرتضوی, برنامه نویس پایتون, بات‌های بله, توسعه‌دهنده بات, پایتون, طراحی وب">
-    <meta name="description" content="محمد پارسا مرتضوی برنامه نویس پایتون و توسعه‌دهنده بات‌های بله و تلگرام است. او در زمینه طراحی وب و ساخت ربات‌های تلگرامی فعالیت می‌کنم.">    
+    <meta name="keywords" content="محمد پارسا مرتضوی, برنامه نویس پایتون, بات‌های بله, توسعه‌دهنده بات, پایتون, طراحی وب, Python Developer, Bot Developer">
+    <meta name="description" content="محمد پارسا مرتضوی - برنامه نویس ۱۴ ساله پایتون و توسعه‌دهنده بات‌های بله و تلگرام. متخصص در طراحی وب مدرن و ساخت ربات‌های هوشمند">
+    <meta name="author" content="محمد پارسا مرتضوی">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mpmms.ir">
     <link rel='shortcut icon' href='assets/favicon.ico' type='image/x-icon' />
+    
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mpmms.ir">
+    <meta property="og:title" content="محمد پارسا مرتضوی - برنامه نویس پایتون">
+    <meta property="og:description" content="برنامه نویس ۱۴ ساله پایتون و توسعه‌دهنده بات‌های بله و تلگرام">
     <meta property="og:image" content="assets/image.jpg">
-    <title>MPMMS</title>
+
+    
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mpmms.ir">
+    <meta property="twitter:title" content="محمد پارسا مرتضوی - برنامه نویس پایتون">
+    <meta property="twitter:description" content="برنامه نویس ۱۴ ساله پایتون و توسعه‌دهنده بات‌های بله و تلگرام">
+    <meta property="twitter:image" content="assets/image.jpg">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'bounce-soft': 'bounceSoft 2s ease-in-out infinite',
+                        'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'mesh-gradient': 'linear-gradient(45deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)',
+                    },
+                    fontFamily: {
+                        'persian': ['Vazirmatn', 'Tahoma', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @font-face {
-            font-family: studio;
-            src: url('assets/fonts/SD-Studio-Bold.ttf') format('truetype');
-        }
         * {
-            font-family: studio;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            font-family: Vazirmatn;
         }
-        @font-face {
-            font-family: colak;
-            src: url('assets/fonts/Colak.ttf') format('truetype');
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        html {
-            scroll-behavior: smooth;
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-    
-        ::-webkit-scrollbar {
-            width: 0;
+        
+        @keyframes bounceSoft {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
-        #scrool-place {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 10px;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0);
+        
+        @keyframes pulseSoft {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
-    
-        #progressbar {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 10px;
-            height: 100%;
-            background: linear-gradient(to top, #0095da, #26a8ff);
-            animation: hue-anim 6s linear infinite;
-            z-index: 1000;
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(1deg); }
+            66% { transform: translateY(5px) rotate(-1deg); }
         }
-    
-        @keyframes hue-anim {
-            0%, 100% {
-                filter: hue-rotate(0deg);
-            }
-            50% {
-                filter: hue-rotate(360deg);
-            }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+            to { text-shadow: 0 0 30px rgba(59, 130, 246, 0.8); }
         }
-    
-        #progressbar::before, #progressbar::after {
+
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .skill-card:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(37, 99, 235, 0.15));
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
             content: '';
             position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .floating-shapes {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, #0095da, #26a8ff);
-            filter: blur(10px);
-        }
-    
-        body {
-            background: linear-gradient(#3d3d3d , #181818);
-            color: #2ec9d4;
-            line-height: 1.6;
-            text-align: center;
-            animation: fadeIn 2s ease-out;
-        }
-    
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-    
-        header {
-            background-color: #0f0f0ff1;
-            color: #2ec9d4;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            position: relative;
-            animation: slideIn 1s ease-out;
-        }
-    
-        @keyframes slideIn {
-            0% {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-    
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            animation: shine 1.5s infinite alternate;
-            font-family: colak;
-        }
-    
-        @keyframes shine {
-            0% {
-                text-shadow: 0 0 5px #2ec9d4, 0 0 10px #2ec9d4;
-            }
-            100% {
-                text-shadow: 0 0 10px #2ec9d4, 0 0 20px #2ec9d4;
-            }
-        }
-    
-        main {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            animation: fadeIn 2s ease-out;
-        }
-    
-        .skills {
-            background-color: #141414;
-            color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px #000000;
-            margin: 20px auto;
-            transition: transform 0.3s ease;
-            width: 90%;
-            max-width: 800px;
-            animation: slideUp 1s ease-out;
-        }
-    
-        @keyframes slideUp {
-            0% {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-    
-        .skills:hover {
-            transform: scale(1.02);
-        }
-    
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #2ec9d4;
-        }
-    
-        ul {
-            list-style-type: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0;
-            animation: fadeIn 1.5s ease-out;
-        }
-    
-        .skill {
-            width: 100%;
-            max-width: 600px;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-            animation: skillFadeIn 1s ease-out;
-        }
-    
-        @keyframes skillFadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-    
-        .skill:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px #000000;
-        }
-    
-        .img {
-            width: 100px;
-            height: 100px;
-            border-radius: 100%;
-            border-style: solid;
-            border-color: #2ec9d4;
-            max-width: 100%;
+            pointer-events: none;
+            z-index: 1;
         }
 
-    
-        .skill {
-            background-color: #2ec9d4;
-            color: #000000;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px #000000f1;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-    
-        .skills:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 12px #2ec9d4;
-        }
-    
-        a {
-            text-decoration: none;
-            color: #ffffff;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-        }
-    
-        a:hover {
-            color: #2ec9d4;
-            text-shadow: 0 0 5px #2ec9d4, 0 0 10px #2ec9d4, 0 0 15px #2ec9d4, 0 0 20px #2ec9d4;
-        }
-    
-        nav {
-            background-color: #2ec9d4;
-            overflow: hidden;
-            animation: fadeInNav 1s ease-out;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            float: none;
-            padding: 14px 16px;
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            font-weight: bold;
-            text-align: center;
-            transition: background-color 0.3s ease;
-            flex: 1 0 auto;
-            min-width: 80px;
-        }
-    
-        nav a:hover {
-            background-color: #0f0f0ff1;
-            color: #2ec9d4;
-        }
-    
-        @keyframes fadeInNav {
-            0% {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .light-mode body {
-            background: linear-gradient(#d3d3d3, #e4e4e4);
-            color: #1a1a1a;
-        }
-
-        .light-mode header {
-            background-color: #ffffffee;
-            color: #1a1a1a;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .light-mode .skills {
-            background-color: #ffffff;
-            color: #1a1a1a;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .light-mode .skill {
-            background-color: #e3f2fd;
-            color: #000000;
-        }
-
-        .light-mode nav {
-            background-color: #2ec9d4;
-        }
-
-        .light-mode nav a {
-            color: #000;
-        }
-
-        .light-mode nav a:hover {
-            background-color: #ffffff;
-            color: #2ec9d4;
-        }
-
-        .light-mode .btn {
-            background-color: #2ec9d4;
-            color: #000000;
-        }
-
-        .light-mode .btn:hover {
-            background-color: #ffffff;
-            color: #2ec9d4;
-            box-shadow: 0 0 10px #2ec9d4;
-        }
-
-        .light-mode footer {
-            background-color: #f5f5f5;
-            color: #000000;
-        }
-
-        .theme-toggle-btn {
+        .shape {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            background: transparent;
-            border: 2px solid #2ec9d4;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.15), rgba(37, 99, 235, 0.1));
             border-radius: 50%;
-            color: #2ec9d4;
-            font-size: 1.2rem;
-            padding: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 1001;
+            animation: float 8s ease-in-out infinite;
         }
 
-        .theme-toggle-btn:hover {
-            background-color: #2ec9d4;
-            color: #000;
-            box-shadow: 0 0 10px #2ec9d4;
+        .shape:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 60px; height: 60px; top: 60%; left: 80%; animation-delay: 2s; }
+        .shape:nth-child(3) { width: 100px; height: 100px; top: 80%; left: 20%; animation-delay: 4s; }
+        .shape:nth-child(4) { width: 40px; height: 40px; top: 30%; left: 70%; animation-delay: 1s; }
+        .shape:nth-child(5) { width: 120px; height: 120px; top: 10%; left: 60%; animation-delay: 3s; }
+
+        body {
+            font-family: 'Vazir', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
+            min-height: 100vh;
         }
 
-
-        .btn {
-            background: #2ec9d4;
-            color: #000;
-            padding: 10px 30px;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            margin: 5px;
-            display: inline-block;
-            width: 80%;
-            max-width: 300px;
-        }
-        
-        .btn:hover {
-            background: #0f0f0ff1;
-            color: #2ec9d4;
-            box-shadow: 0 0 10px #2ec9d4;
-        }
-    
-        footer {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #0f0f0f;
-            color: #2ec9d4;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+        .section-enter {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        @media (max-width: 1024px) {
-            #progressbar {
-                width: 8px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .skills {
-                width: 90%;
-            }
-            
-            nav a {
-                padding: 12px 14px;
-                font-size: 0.9rem;
-            }
+        .section-enter.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .profile-image {
+            background: linear-gradient(45deg, #3b82f6, #1e40af);
+            padding: 4px;
+            border-radius: 50%;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .profile-image img {
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #3b82f6, #1e40af, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 3s ease-in-out infinite alternate;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .img {
-                width: 90px;
-                height: 90px;
-            }
-
-            #progressbar {
-                width: 0%;
-            }
-            
-            nav {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            
-            nav a {
-                padding: 10px 12px;
-                font-size: 0.85rem;
-                min-width: 70px;
-            }
-            
-            .btn {
-                padding: 10px 25px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            p {
-                font-size: small;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            .img {
-                width: 80px;
-                height: 80px;
-            }
-            
-            nav a {
-                padding: 8px 10px;
-                font-size: 0.8rem;
-                min-width: 60px;
-            }
-
-            #progressbar {
-                width: 0%;
-            }
-            
-            .skills {
-                padding: 15px;
-            }
-            
-            .skill {
-                padding: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.6rem;
-            }
-
-            p {
-                font-size: smaller;
-            }
-            
-            h2 {
-                font-size: 1.3rem;
-            }
-            #progressbar {
-                width: 0%;
-            }
-            
-            .img {
-                width: 70px;
-                height: 70px;
-            }
-            
-            nav {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            
-            nav a {
-                padding: 8px;
-                font-size: 0.75rem;
-                min-width: 50px;
-            }
-            
-            .skills {
-                padding: 12px;
-                width: 95%;
-            }
-            
-            .skill {
-                padding: 12px;
-                font-size: 0.9rem;
-            }
-            
-            .btn {
-                padding: 8px 20px;
-                font-size: 0.9rem;
-            }
-            
-            #progressbar {
-                width: 6px;
-            }
-        }
-
-        @media (max-width: 375px) {
-            h1 {
-                font-size: 1.4rem;
-            }
-            
-            h2 {
-                font-size: 1.2rem;
-            }
-            
-            .img {
-                width: 60px;
-                height: 60px;
-            }
-
-            #progressbar {
-                width: 0%;
-            }
-            
-            nav a {
-                padding: 6px;
-                font-size: 0.7rem;
-                min-width: 40px;
-            }
-            
-            .btn {
-                padding: 6px 15px;
-                font-size: 0.8rem;
-            }
-            
-            #progressbar {
-                width: 4px;
-            }
-        }
-
-        @media (max-width: 320px) {
-            h1 {
-                font-size: 1.3rem;
-            }
-            
-            nav {
-                flex-direction: column;
-            }
-
-            #progressbar {
-                width: 0%;
-            }
-            
-            nav a {
-                width: 100%;
-                padding: 8px;
-            }
-            
-            #progressbar {
-                display: none;
-            }
+            .floating-shapes { display: none; }
         }
     </style>
+    <title>محمد پارسا مرتضوی - برنامه نویس پایتون و توسعه‌دهنده بات</title>
 </head>
-<body>
-    <header>
-        <div class="account-icon">
-            <img class="img" src="assets/account.png" alt="تصویر پروفایل محمد پارسا مرتضوی" />
-        </div>
-        <h1>محمد پارسا مرتضوی</h1>
-        <button id="toggle-theme" class="theme-toggle-btn">☀️</button>
+<body class="text-white overflow-x-hidden">
+    
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
 
-    </header>
-    <nav>
-        <a href="#doostan" class="a2">دوستان</a>
-        <a href="#contact" class="a2">ارتباط با من</a>
-        <a href="#digar" class="a2">دیگر کارهای من</a>
-        <a href="#maharat" class="a2">مهارت‌های من</a>
-        <a href="index.html" class="a2">خانه</a>
-    </nav>
-    <div id="progressbar"></div>
-    <div id="scrool-place"></div>
-    <main>
-        <section class="skills">
-            <h2>بیوگرافی</h2>
-            <p>سلام! من محمد پارسا مرتضوی هستم و ۱۴ سالمه. الان که اینجایید یه برنامه نویس پایتونم.
-                اوایل کلاس ششم بودم که یه دوره جاوااسکریپت رایگان پیدا کردم و کم کم از برنامه نویسی خوشم اومد و بعدش به سراغ پایتون و فرانت اند اومدم.
-                الان هم مدتی از اون موقع میگذره، من پایتون رو حرفه ای شدم و هر از چندگاهی هم طراحی وب انجام میدم. ساخت ربات هم جز علاقه های منه و در کل، سعی میکنم که هر روز پیشرفت کنم</p>
-        </section>
+    <div class="relative z-10">
+        
+        <header class="container mx-auto px-6 py-8 animate-fade-in">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-6 group">
+                    <div class="profile-image">
+                        <img class="w-20 h-20" src="assets/account.png" alt="تصویر پروفایل محمد پارسا مرتضوی" />
+                    </div>
+                    <div>
+                        <h1 class="text-4xl font-bold text-gradient animate-pulse-soft">محمد پارسا مرتضوی</h1>
+                        <p class="text-lg text-white/80 mt-2">برنامه‌نویس پایتون و توسعه‌دهنده بات</p>
+                    </div>
+                </div>
+                
+                <button id="theme-toggle" class="glass rounded-full p-4 hover:scale-110 transition-all duration-300 group">
+                    <span class="text-2xl group-hover:animate-bounce-soft">🌙</span>
+                </button>
+            </div>
+        </header>
 
-        <section class="skills" id="maharat">
-            <h2>مهارت‌ها</h2>
-            <ul>
-                <li class="skill">پایتون</li>
-                <li class="skill">اچ تی ام ال</li>
-                <li class="skill">سی اس اس</li>
-                <li class="skill">جاوا اسکریپت</li>
-                <li class="skill">ساخت ربات بله</li>
-                <li class="skill">ساخت ربات تلگرام</li>
-                <li class="skill">Illustrator</li>
-                <li class="skill">Photoshop</li>
-            </ul>
-        </section>
+        
+        <nav class="sticky top-0 glass backdrop-blur-md py-4 mb-12 z-20 animate-slide-up">
+            <div class="container mx-auto px-6">
+                <div class="flex justify-center gap-8 flex-wrap">
+                    <a href="#home" class="nav-link px-4 py-2 text-white/90 hover:text-white transition-colors duration-300">خانه</a>
+                    <a href="#skills" class="nav-link px-4 py-2 text-white/90 hover:text-white transition-colors duration-300">مهارت‌ها</a>
+                    <a href="#projects" class="nav-link px-4 py-2 text-white/90 hover:text-white transition-colors duration-300">پروژه‌ها</a>
+                    <a href="#contact" class="nav-link px-4 py-2 text-white/90 hover:text-white transition-colors duration-300">تماس</a>
+                    <a href="#friends" class="nav-link px-4 py-2 text-white/90 hover:text-white transition-colors duration-300">دوستان</a>
+                </div>
+            </div>
+        </nav>
 
-        <section class="skills" id="digar">
-            <h2>دیگر کارهای من</h2>
-            <a href="https://ble.ir/MetalCode" class="btn" target="_blank">آکادمی برنامه‌نویسی متال‌کد</a>
-            <br>
-            <a href="https://ble.ir/shahriyar_bot" class="btn" target="_blank">ربات داستان نویس شهریار</a>
-            <br>
-            <a href="https://ble.ir/shahram_bot" class="btn" target="_blank">ربات شاعر شهرام</a>
-            <br>
-            <a href="https://pypi.org/project/thepalette" class="btn" target="_blank">(ThePalette) کتابخانه دپالت</a>
-        </section>
+        <main class="container mx-auto px-6 space-y-20">
+            
+            <section id="home" class="section-enter text-center py-20">
+                <div class="glass-card rounded-3xl p-12 max-w-4xl mx-auto">
+                    <div class="animate-bounce-soft inline-block mb-8">
+                        <span class="text-6xl">👋</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl font-bold text-gradient mb-6">سلام، من پارسا هستم!</h2>
+                    <p class="text-xl text-white/80 leading-relaxed max-w-3xl mx-auto mb-8">
+                        برنامه‌نویس ۱۴ ساله پایتون هستم که عاشق ساخت ربات‌های هوشمند و طراحی وب‌سایت‌های مدرن است. 
+                        از کلاس ششم شروع کردم و الان به حرفه‌ای شدن نزدیک شدم!
+                    </p>
+                    <div class="flex gap-4 justify-center flex-wrap">
+                        <a href="#contact" class="btn-primary px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition-all duration-300">
+                            بیا با هم کار کنیم! 🚀
+                        </a>
+                        <a href="#projects" class="glass px-8 py-4 rounded-2xl font-semibold hover:scale-105 hover:bg-white/20 transition-all duration-300">
+                            نمونه کارهام رو ببین 👀
+                        </a>
+                    </div>
+                </div>
+            </section>
 
-        <section class="skills" id="contact">
-            <h2>ارتباط با من</h2>
-            <a href="https://ble.ir/mpmms" class="btn" target="_blank">@mpmms :بله</a>
-            <br>
-            <a href="https://t.me/mpm_ms" class="btn" target="_blank">@mpm_ms :تلگرام</a>
-            <br>
-            <a href="https://github.com/mpmms" class="btn" target="_blank">@mpmms :صفحه گیت‌هاب</a>
-        </section>
+            
+            <section id="skills" class="section-enter">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gradient mb-4">مهارت‌هام 💪</h2>
+                    <p class="text-xl text-white/80">چیزهایی که باهاشون کار می‌کنم</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="skill-card rounded-2xl p-6 text-center group cursor-pointer">
+                        <div class="text-4xl mb-4 group-hover:animate-bounce-soft">🐍</div>
+                        <h3 class="font-semibold text-lg">پایتون</h3>
+                        <p class="text-sm text-white/70 mt-2">زبان اصلی من</p>
+                    </div>
+                    
+                    <div class="skill-card rounded-2xl p-6 text-center group cursor-pointer">
+                        <div class="text-4xl mb-4 group-hover:animate-bounce-soft">🌐</div>
+                        <h3 class="font-semibold text-lg">HTML/CSS</h3>
+                        <p class="text-sm text-white/70 mt-2">بنیان وب</p>
+                    </div>
+                    
+                    <div class="skill-card rounded-2xl p-6 text-center group cursor-pointer">
+                        <div class="text-4xl mb-4 group-hover:animate-bounce-soft">⚡</div>
+                        <h3 class="font-semibold text-lg">جاوااسکریپت</h3>
+                        <p class="text-sm text-white/70 mt-2">جان وب‌سایت‌ها</p>
+                    </div>
+                    
+                    <div class="skill-card rounded-2xl p-6 text-center group cursor-pointer">
+                        <div class="text-4xl mb-4 group-hover:animate-bounce-soft">🤖</div>
+                        <h3 class="font-semibold text-lg">ربات بله</h3>
+                        <p class="text-sm text-white/70 mt-2">متخصص ربات‌سازی</p>
+                    </div>
+                    
+                    <div class="skill-card rounded-2xl p-6 text-center group cursor-pointer">
+                        <div class="text-4xl mb-4 group-hover:animate-bounce-soft">📱</div>
+                        <h3 class="font-semibold text-lg">ربات تلگرام</h3>
+                        <p class="text-sm text-white/70 mt-2">پیام‌رسان محبوب</p>
+                    </div>
+                    
+                    <div class="skill-card rounded-2xl p-6 text-center group cursor-pointer">
+                        <div class="text-4xl mb-4 group-hover:animate-bounce-soft">🎨</div>
+                        <h3 class="font-semibold text-lg">Illustrator</h3>
+                        <p class="text-sm text-white/70 mt-2">طراحی وکتور</p>
+                    </div>
+                    
+                    <div class="skill-card rounded-2xl p-6 text-center group cursor-pointer">
+                        <div class="text-4xl mb-4 group-hover:animate-bounce-soft">📸</div>
+                        <h3 class="font-semibold text-lg">Photoshop</h3>
+                        <p class="text-sm text-white/70 mt-2">ویرایش تصاویر</p>
+                    </div>
+                    
+                    <div class="skill-card rounded-2xl p-6 text-center group cursor-pointer">
+                        <div class="text-4xl mb-4 group-hover:animate-bounce-soft">❤️</div>
+                        <h3 class="font-semibold text-lg">علاقه به یادگیری</h3>
+                        <p class="text-sm text-white/70 mt-2">هر روز پیشرفت</p>
+                    </div>
+                </div>
+            </section>
 
-        <section class="skills" id="doostan">
-            <h2>دوستان</h2>
-            <a href="https://www.zeroonecode.ir/" class="btn" target="_blank">امیرعلی ترکاشوند</a>
-            <br>
-            <a href="https://www.behradinfo.ir/" class="btn" target="_blank">بهراد امیدی</a>
-            <br>
-            <a href="http://daradege.ir/" class="btn" target="_blank">علی صفامنش</a>
-        </section>
+            
+            <section id="projects" class="section-enter">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gradient mb-4">پروژه‌هام 🚀</h2>
+                    <p class="text-xl text-white/80">چیزهایی که ساختم</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-300 group">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-2xl group-hover:animate-bounce-soft">
+                                🎓
+                            </div>
+                            <h3 class="text-2xl font-bold">آکادمی متال‌کد</h3>
+                        </div>
+                        <p class="text-white/80 mb-6">پلتفرم آموزش برنامه‌نویسی که توی بله فعال هست</p>
+                        <a href="https://ble.ir/MetalCode" target="_blank" class="btn-primary inline-block px-6 py-3 rounded-xl font-semibold">
+                            مشاهده در بله 📱
+                        </a>
+                    </div>
+                    
+                    <div class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-300 group">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-2xl group-hover:animate-bounce-soft">
+                                📚
+                            </div>
+                            <h3 class="text-2xl font-bold">ربات شهریار</h3>
+                        </div>
+                        <p class="text-white/80 mb-6">ربات داستان‌نویس هوشمند که داستان‌های جذاب می‌سازه</p>
+                        <a href="https://ble.ir/shahriyar_bot" target="_blank" class="btn-primary inline-block px-6 py-3 rounded-xl font-semibold">
+                            تست کن! 🤖
+                        </a>
+                    </div>
+                    
+                    <div class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-300 group">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center text-2xl group-hover:animate-bounce-soft">
+                                🎭
+                            </div>
+                            <h3 class="text-2xl font-bold">ربات شهرام</h3>
+                        </div>
+                        <p class="text-white/80 mb-6">ربات شاعر که شعرهای زیبا و دلنشین می‌سرایه</p>
+                        <a href="https://ble.ir/shahram_bot" target="_blank" class="btn-primary inline-block px-6 py-3 rounded-xl font-semibold">
+                            شعر بخواه! 📝
+                        </a>
+                    </div>
+                    
+                    <div class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-300 group">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-2xl group-hover:animate-bounce-soft">
+                                📦
+                            </div>
+                            <h3 class="text-2xl font-bold">کتابخانه ThePalette</h3>
+                        </div>
+                        <p class="text-white/80 mb-6">کتابخانه پایتون برای کار با رنگ‌ها و پالت‌ها</p>
+                        <a href="https://pypi.org/project/thepalette" target="_blank" class="btn-primary inline-block px-6 py-3 rounded-xl font-semibold">
+                            دانلود از PyPI 🐍
+                        </a>
+                    </div>
+                </div>
+            </section>
 
-        <footer>
-            <p>&copy; 2025 محمد پارسا مرتضوی | تمامی حقوق محفوظ است.</p>
-        </footer>
-    </main>
-    <script type="text/javascript">
-        let progressbar = document.getElementById('progressbar')
-        let totalHeight = document.body.scrollHeight - window.innerHeight
-        window.onload = function() {
-            progressbar.style.height = 0 + '%'
+            
+            <section id="contact" class="section-enter">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gradient mb-4">بیا در ارتباط باشیم! 📞</h2>
+                    <p class="text-xl text-white/80">راه‌های تماس با من</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <a href="https://ble.ir/mpmms" target="_blank" class="glass-card rounded-2xl p-8 text-center hover:scale-105 transition-all duration-300 group">
+                        <div class="text-5xl mb-4 group-hover:animate-bounce-soft">📱</div>
+                        <h3 class="text-xl font-bold mb-2">بله</h3>
+                        <p class="text-white/80">@mpmms</p>
+                    </a>
+                    
+                    <a href="https://t.me/mpm_ms" target="_blank" class="glass-card rounded-2xl p-8 text-center hover:scale-105 transition-all duration-300 group">
+                        <div class="text-5xl mb-4 group-hover:animate-bounce-soft">🚀</div>
+                        <h3 class="text-xl font-bold mb-2">تلگرام</h3>
+                        <p class="text-white/80">@mpm_ms</p>
+                    </a>
+                    
+                    <a href="https://github.com/mpmms" target="_blank" class="glass-card rounded-2xl p-8 text-center hover:scale-105 transition-all duration-300 group">
+                        <div class="text-5xl mb-4 group-hover:animate-bounce-soft">💻</div>
+                        <h3 class="text-xl font-bold mb-2">گیت‌هاب</h3>
+                        <p class="text-white/80">@mpmms</p>
+                    </a>
+                </div>
+            </section>
+
+            
+            <section id="friends" class="section-enter">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gradient mb-4">دوستان عزیزم 👥</h2>
+                    <p class="text-xl text-white/80">برنامه‌نویسان باحال که باهاشون دوستم</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <a href="https://www.zeroonecode.ir/" target="_blank" class="glass-card rounded-2xl p-8 text-center hover:scale-105 transition-all duration-300 group">
+                        <div class="text-4xl mb-4 group-hover:animate-bounce-soft">👨‍💻</div>
+                        <h3 class="text-xl font-bold mb-2">امیرعلی ترکاشوند</h3>
+                        <p class="text-white/80 text-sm">توسعه‌دهنده وب</p>
+                    </a>
+                    
+                    <a href="https://www.behradinfo.ir/" target="_blank" class="glass-card rounded-2xl p-8 text-center hover:scale-105 transition-all duration-300 group">
+                        <div class="text-4xl mb-4 group-hover:animate-bounce-soft">🧑‍💻</div>
+                        <h3 class="text-xl font-bold mb-2">بهراد امیدی</h3>
+                        <p class="text-white/80 text-sm">برنامه نویس فرانت اند</p>
+                    </a>
+                    
+                    <a href="https://daradege.ir/" target="_blank" class="glass-card rounded-2xl p-8 text-center hover:scale-105 transition-all duration-300 group">
+                        <div class="text-4xl mb-4 group-hover:animate-bounce-soft">👦</div>
+                        <h3 class="text-xl font-bold mb-2">علی صفامنش</h3>
+                        <p class="text-white/80 text-sm">برنامه نویس فول استک</p>
+                    </a>
+                </div>
+            </section>
+
+            
+            <footer class="text-center py-12 section-enter">
+                <div class="glass-card rounded-2xl p-8 max-w-2xl mx-auto">
+                    <p class="text-white/80 mb-4">ساخته شده با ❤️ توسط <a href="https://daradege.ir">علی صفامنش</a> برای محمدپارسا مرتضوی</p>
+                    <p class="text-white/60 text-sm">&copy; 2025 تمامی حقوق محفوظ است</p>
+                    <div class="mt-6 flex justify-center gap-4">
+                        <span class="text-2xl animate-bounce-soft">🚀</span>
+                        <span class="text-2xl animate-bounce-soft" style="animation-delay: 0.2s">💻</span>
+                        <span class="text-2xl animate-bounce-soft" style="animation-delay: 0.4s">🎯</span>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        
+        document.querySelectorAll('.section-enter').forEach(section => {
+            observer.observe(section);
+        });
+
+        
+        const themeToggle = document.getElementById('theme-toggle');
+        let isDark = true;
+
+        themeToggle.addEventListener('click', () => {
+            const body = document.body;
+            const icon = themeToggle.querySelector('span');
+            
+            if (isDark) {
+                
+                body.style.background = 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 25%, #cbd5e1 50%, #94a3b8 75%, #64748b 100%)';
+                icon.textContent = '☀️';
+                isDark = false;
+                
+                
+                const glassElements = document.querySelectorAll('.glass, .glass-card');
+                glassElements.forEach(el => {
+                    el.style.background = 'rgba(255, 255, 255, 0.25)';
+                    el.style.border = '1px solid rgba(255, 255, 255, 0.3)';
+                });
+            } else {
+                
+                body.style.background = 'linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%)';
+                icon.textContent = '🌙';
+                isDark = true;
+                
+                
+                const glassElements = document.querySelectorAll('.glass, .glass-card');
+                glassElements.forEach(el => {
+                    el.style.background = el.classList.contains('glass') ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.08)';
+                    el.style.border = el.classList.contains('glass') ? '1px solid rgba(255, 255, 255, 0.2)' : '1px solid rgba(255, 255, 255, 0.15)';
+                });
+            }
+        });
+
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.shape');
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.1;
+                shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.01}deg)`;
+            });
+        });
+
+        
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
         }
-        window.onscroll = function() {
-            let progressHeight = (window.pageYOffset / totalHeight) * 100;
-            progressbar.style.height = progressHeight + '%';
+
+        
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('#home h2');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                typeWriter(heroTitle, originalText, 80);
+            }
+        });
+
+        
+        let mouseTrail = [];
+        const maxTrailLength = 20;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseTrail.push({
+                x: e.clientX,
+                y: e.clientY,
+                time: Date.now()
+            });
+
+            if (mouseTrail.length > maxTrailLength) {
+                mouseTrail.shift();
+            }
+
+            
+            if (Math.random() > 0.7) {
+                createTrailParticle(e.clientX, e.clientY);
+            }
+        });
+
+        function createTrailParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: radial-gradient(circle, rgba(59, 130, 246, 0.8), transparent);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 1000;
+                left: ${x}px;
+                top: ${y}px;
+                animation: trailFade 1s ease-out forwards;
+            `;
+
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
         }
 
-            const toggleBtn = document.getElementById('toggle-theme');
-    let lightMode = false;
+        
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes trailFade {
+                0% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(0.1);
+                }
+            }
+        `;
+        document.head.appendChild(style);
 
-    toggleBtn.addEventListener('click', () => {
-        document.documentElement.classList.toggle('light-mode');
-        lightMode = !lightMode;
-        toggleBtn.textContent = lightMode ? '🌙' : '☀️';
-    });
+        
+        document.querySelectorAll('.skill-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    card.style.transform = '';
+                }, 150);
 
+                
+                const ripple = document.createElement('div');
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: 100px;
+                    height: 100px;
+                    background: radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    animation: ripple 0.6s linear;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                `;
+
+                card.style.position = 'relative';
+                card.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes ripple {
+                0% {
+                    transform: translate(-50%, -50%) scale(0);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translate(-50%, -50%) scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+
+        
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        
+        if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+            document.querySelectorAll('.animate-bounce-soft, .animate-float').forEach(el => {
+                el.style.animation = 'none';
+            });
+        }
     </script>
 </body>
 </html>

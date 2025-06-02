@@ -1,0 +1,9 @@
+This project was originally forked from https://github.com/mpmms/mpmms.github.io  
+It has been **heavily modified, rewritten, and customized** by me (Ali).
+
+Please note that this version is **not the same** as the original.  
+Design, features, and structure have changed significantly.
+
+Do not remove this file — it identifies the author of this custom version.
+
+— Ali (https://daradege.ir)
