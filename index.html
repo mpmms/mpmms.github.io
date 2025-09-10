@@ -1,43 +1,1023 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Updating...</title>
-  <style>
-    body {
-      margin: 0;
-      background: #000;
-      color: #00ff41;
-      font-family: 'Fira Code', monospace;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Parsa Mortazavi | Python Developer & Bot Creator</title>
+    <meta name="description" content="Mohammad Parsa Mortazavi - 14-year-old Python Developer, Bot Creator & Linux Enthusiast">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --matrix-green: #00ff41;
+            --matrix-btn: #003d05;
+            --matrix-dark: #0a0a0a;
+            --matrix-gray: #1a1a1a;
+            --matrix-light: #33ff33;
+            --text-dim: #888;
+        }
 
-    .updating {
-      font-size: 3rem;
-      color: #00ff41;
-      text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
-      animation: neonFlicker 1.5s infinite alternate, slideIn 5s infinite linear;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    @keyframes neonFlicker {
-      0% { text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 20px #00ff41; opacity: 0.8; }
-      50% { text-shadow: 0 0 15px #00ff41, 0 0 30px #00ff41, 0 0 45px #00ff41; opacity: 1; }
-      100% { text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 20px #00ff41; opacity: 0.8; }
-    }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--matrix-dark);
+            color: var(--matrix-green);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-    @keyframes slideIn {
-      0% { transform: translateY(-5px); }
-      50% { transform: translateY(5px); }
-      100% { transform: translateY(-5px); }
-    }
-  </style>
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--matrix-green);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--matrix-green);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::before {
+            content: '> ';
+            color: var(--matrix-green);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--matrix-green);
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--matrix-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            animation: glitch 2s infinite;
+        }
+
+        .hero h1::before,
+        .hero h1::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.8;
+            clip: rect(0, 0, 0, 0);
+        }
+
+        .hero h1::before {
+            color: var(--matrix-green);
+            animation: glitch-1 2s infinite;
+        }
+
+        .hero h1::after {
+            color: var(--matrix-gree);
+            animation: glitch-2 2s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        @keyframes glitch-1 {
+            0%, 100% { clip: rect(0, 900px, 0, 0); }
+            10% { clip: rect(0, 900px, 100px, 0); }
+            20% { clip: rect(100px, 900px, 200px, 0); }
+            30% { clip: rect(200px, 900px, 300px, 0); }
+            40% { clip: rect(300px, 900px, 400px, 0); }
+            50% { clip: rect(400px, 900px, 500px, 0); }
+        }
+
+        @keyframes glitch-2 {
+            0%, 100% { clip: rect(0, 900px, 0, 0); }
+            15% { clip: rect(50px, 900px, 150px, 0); }
+            25% { clip: rect(150px, 900px, 250px, 0); }
+            35% { clip: rect(250px, 900px, 350px, 0); }
+            45% { clip: rect(350px, 900px, 450px, 0); }
+            55% { clip: rect(450px, 900px, 550px, 0); }
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--matrix-light);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid var(--matrix-green);
+            color: var(--matrix-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            color: var(--matrix-dark);
+            box-shadow: 0 0 20px var(--matrix-green);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--matrix-green);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--matrix-green);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--matrix-light);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid var(--matrix-green);
+            background: rgba(0, 255, 65, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--matrix-green);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            padding: 2rem;
+            border: 1px solid var(--matrix-green);
+            background: rgba(0, 255, 65, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 255, 65, 0.2);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+            color: var(--matrix-light);
+        }
+
+        .skill-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .skill-description {
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .skill-level {
+            display: flex;
+            gap: 4px;
+        }
+
+        .skill-dot {
+            width: 12px;
+            height: 12px;
+            border: 1px solid var(--matrix-green);
+            transition: all 0.3s ease;
+        }
+
+        .skill-dot.filled {
+            background: var(--matrix-green);
+            box-shadow: 0 0 10px var(--matrix-green);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .project-card {
+            padding: 2.5rem;
+            border: 1px solid var(--matrix-green);
+            background: rgba(0, 255, 65, 0.03);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 255, 65, 0.15);
+            border-color: var(--matrix-light);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--matrix-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-status {
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            border: 1px solid var(--matrix-green);
+            background: rgba(0, 255, 65, 0.1);
+            color: var(--matrix-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-description {
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tech-tag {
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            border: 1px solid var(--matrix-green);
+            background: rgba(0, 255, 255, 0.1);
+            color: var(--matrix-green);
+        }
+
+        .project-link {
+            color: var(--matrix-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--matrix-light);
+        }
+
+        .project-link::before {
+            content: '→ ';
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            padding: 2rem;
+            border: 1px solid var(--matrix-green);
+            background: rgba(0, 255, 65, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 255, 65, 0.2);
+            border-color: var(--matrix-light);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--matrix-light);
+        }
+
+        .contact-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--matrix-green);
+        }
+
+        .contact-handle {
+            color: var(--text-dim);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--matrix-green);
+            background: rgba(0, 255, 65, 0.02);
+        }
+
+        footer p {
+            color: var(--text-dim);
+        }
+
+        /* Matrix Rain Background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.08;
+            filter: blur(0.5px);
+        }
+
+        /* Add some random glitch effects to sections */
+        section:nth-child(odd) {
+            animation: subtle-glitch 8s infinite;
+        }
+
+        @keyframes subtle-glitch {
+            0%, 98% { filter: none; }
+            99% { filter: hue-rotate(90deg) saturate(1.5); }
+            99.5% { filter: hue-rotate(-90deg) saturate(0.5); }
+        }
+
+        /* Glitch borders */
+        .project-card, .contact-card {
+            position: relative;
+        }
+
+        .project-card::before, .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--matrix-btn), var(--matrix-btn), var(--matrix-btn));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            filter: blur(5px);
+        }
+
+        .project-card:hover::before, .contact-card:hover::before {
+            opacity: 0.7;
+            animation: border-glitch 0.5s ease-out;
+        }
+
+        @keyframes border-glitch {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.02) rotate(0.5deg); }
+            50% { transform: scale(0.98) rotate(-0.5deg); }
+            75% { transform: scale(1.01) rotate(0.2deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--matrix-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--matrix-green);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--matrix-light);
+        }
+    </style>
 </head>
 <body>
-  <div class="updating">Updating...</div>
+    <!-- Matrix Background -->
+    <canvas class="matrix-bg" id="matrix-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Mohammad Parsa</a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 data-text="Mohammad Parsa Mortazavi">Mohammad Parsa Mortazavi</h1>
+                <p class="subtitle">Python Developer & Bot Creator</p>
+                <p class="description">
+                    14-year-old programmer passionate about Python, Linux, and creating intelligent bots. 
+                    Started coding in 6th grade and haven't stopped building amazing things since.
+                </p>
+                <a href="#about" class="cta-button">Explore My Work</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <p>Young developer with big dreams and even bigger code</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Hello World!</h3>
+                    <p>
+                        I'm Mohammad Parsa, a 14-year-old developer who discovered the magic of programming 
+                        in 6th grade with Python. What started as curiosity has grown into a passion for 
+                        creating bots, exploring Linux systems, and solving real-world problems through code.
+                    </p>
+                    <p>
+                        From educational platforms to AI-powered storytelling bots, I love building projects 
+                        that make a difference. When I'm not coding, you'll find me diving deep into 
+                        open-source projects or experimenting with new technologies.
+                    </p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Years Coding</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Projects Built</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">PyPI Packages</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Lines of Code</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+                <p>Technologies and tools I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">🐍</div>
+                        <div class="skill-name">Python</div>
+                    </div>
+                    <div class="skill-description">
+                        Primary language for bot development, automation, and backend systems
+                    </div>
+                    <div class="skill-level">
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">🐧</div>
+                        <div class="skill-name">Linux</div>
+                    </div>
+                    <div class="skill-description">
+                        Daily driver and system administration, comfortable with command line
+                    </div>
+                    <div class="skill-level">
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot"></div>
+                        <div class="skill-dot"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">🎨</div>
+                        <div class="skill-name">Photoshop</div>
+                    </div>
+                    <div class="skill-description">
+                        Designing visuals and expressing creativity through Photoshop...
+                    </div>
+                    <div class="skill-level">
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                    </div>
+                </div> 
+                
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">🤖</div>
+                        <div class="skill-name">Bot Development</div>
+                    </div>
+                    <div class="skill-description">
+                        Creating intelligent bots for Bale and Telegram platforms
+                    </div>
+                    <div class="skill-level">
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot"></div>
+                    </div>
+                </div>
+
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">🌐</div>
+                        <div class="skill-name">Front-End</div>
+                    </div>
+                    <div class="skill-description">
+                        Frontend development with HTML, CSS, JavaScript
+                    </div>
+                    <div class="skill-level">
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot"></div>
+                        <div class="skill-dot"></div>
+                        <div class="skill-dot"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">⚡</div>
+                        <div class="skill-name">C++</div>
+                    </div>
+                    <div class="skill-description">
+                        System programming and algorithm implementation
+                    </div>
+                    <div class="skill-level">
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot"></div>
+                        <div class="skill-dot"></div>
+                        <div class="skill-dot"></div>
+                        <div class="skill-dot"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">💻</div>
+                        <div class="skill-name">Ruby</div>
+                    </div>
+                    <div class="skill-description">
+                        Exploring and using Ruby.......
+                    </div>
+                    <div class="skill-level">
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot"></div>
+                        <div class="skill-dot"></div>
+                        <div class="skill-dot"></div>
+                        <div class="skill-dot"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">🐈</div>
+                        <div class="skill-name">Git</div>
+                    </div>
+                    <div class="skill-description">
+                        Tracking my code journey with Git...
+                    </div>
+                    <div class="skill-level">
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">🛜</div>
+                        <div class="skill-name">Back-End</div>
+                    </div>
+                    <div class="skill-description">
+                        Backend development with Python
+                    </div>
+                    <div class="skill-level">
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot filled"></div>
+                        <div class="skill-dot"></div>
+                        <div class="skill-dot"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>Some of my favorite creations</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Decode Academy</h3>
+                        </div>
+                        <div class="project-status">Active</div>
+                    </div>
+                    <p class="project-description">
+                        Educational platform running on Bale and Telegram messenger that provides programming tutorials 
+                        and coding lessons. Helping students learn programming in an interactive way.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Education</span>
+                    </div>
+                    <a href="https://t.me/decode_ir" target="_blank" class="project-link">View Project</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Shahriyar Bot</h3>
+                        </div>
+                        <div class="project-status">Active</div>
+                    </div>
+                    <p class="project-description">
+                        AI-powered storytelling bot that creates engaging Persian stories. Us
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">AI</span>
+                    </div>
+                    <a href="https://ble.ir/shahriyar_bot" target="_blank" class="project-link">Try Bot</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">ThePalette</h3>
+                        </div>
+                        <div class="project-status">Published</div>
+                    </div>
+                    <p class="project-description">
+                        Python library for working with colors and color palettes. Available on PyPI 
+                        for developers to use in their projects.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PyPI</span>
+                        <span class="tech-tag">Library</span>
+                    </div>
+                    <a href="https://pypi.org/project/thepalette" target="_blank" class="project-link">Install Package</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">TimeFarsi</h3>
+                        </div>
+                        <div class="project-status">In Progress</div>
+                    </div>
+                    <p class="project-description">
+                        Persian calendar library for Python developers. Currently in development 
+                        to provide comprehensive Persian date and time functionality.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Calendar</span>
+                        <span class="tech-tag">DateTime</span>
+                    </div>
+                    <a href="https://pypi.org/project/timefarsi" target="_blank" class="project-link">Check Progress</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Let's connect and build something amazing together</p>
+            </div>
+            <div class="contact-grid">
+                <a href="https://ble.ir/mpmms" target="_blank" class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-name">Bale</div>
+                    <div class="contact-handle">@mpmms</div>
+                </a>
+                <a href="https://t.me/mpm_ms" target="_blank" class="contact-card">
+                    <div class="contact-icon">🚀</div>
+                    <div class="contact-name">Telegram</div>
+                    <div class="contact-handle">@mpm_ms</div>
+                </a>
+                <a href="https://github.com/mpmms" target="_blank" class="contact-card">
+                    <div class="contact-icon">💻</div>
+                    <div class="contact-name">GitHub</div>
+                    <div class="contact-handle">@mpmms</div>
+                </a>
+                <a href="mailto:mpmms@proton.me" target="_blank" class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-name">Email</div>
+                    <div class="contact-handle">mpmms@proton.me</div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mohammad Parsa Mortazavi. Built with passion and lots of coffee ☕</p>
+    </footer>
+
+    <script>
+        // Matrix rain effect
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+
+        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+        const matrixArray = matrix.split("");
+
+        const fontSize = 10;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for(let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(10, 10, 10, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#00ff41";
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 33);
+
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
